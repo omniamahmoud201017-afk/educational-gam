@@ -172,7 +172,7 @@
                 <span class="text-amber-500 text-lg">☀️</span>
                 <div>
                     <h4 class="font-bold text-indigo-950 text-sm sm:text-base">1. تقييم أداء البطل الاستراتيجي والمعرفي</h4>
-                    <p id="eval-part-1" class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">حقق البطل نسبة نجاح ممتازة بلغت 63% بعد اجتياز المحاولات بنجاح، مع إظهار تفاعل إيجابي وسريع مع تلميحات المساعد ميزو عند مواجهة خيارات متعددة.</p>
+                    <p id="eval-part-1" class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">حقق البطل نسبة نجاح ممتازة بلغت 63% بعد اجتياز المحاولات بنجاح، مع إظهار تفاعل إيجابي وسريع مع تلمiحات المساعد ميزو عند مواجهة خيارات متعددة.</p>
                 </div>
             </div>
             <div class="flex items-start gap-2">
@@ -271,14 +271,12 @@
         square: "Gemini_Generated_Image_cfc3i6cfc3i6cfc3.jpg"
     };
 
-    // ربط ملفات الصوت بحيث يعبر q1 إلى q5 عن الأسئلة الخمسة بالترتيب
     const AUDIO_FILES = {
         q1: "q1.mp3",
         q2: "q2.mp3",
         q3: "q3.mp3",
         q4: "q4.mp3",
-        q5: "q5.mp3",
-        q6: "q6.mp3" // المرحلة الثانية للسؤال الخامس إذا وجدت
+        q5: "q5.mp3"
     };
 
     let questions = [
@@ -477,7 +475,6 @@
 
         renderOptions(q);
         
-        // تشغيل الملف الصوتي تلقائياً عند تحميل السؤال
         if (q.audioKey) {
             playAudio(q.audioKey);
         }
@@ -521,7 +518,7 @@
                 q.title = "ممتاز! تغيرت القاعدة الآن: اختر (شكل المربع)";
                 q.topic = "تغيير القاعدة (المرحلة الثانية - المربع)";
                 q.targetText = "القاعدة 2: اختر (المربع)";
-                q.audioKey = "q6";
+                q.audioKey = "q5"; 
                 q.options = [
                     { text: "شكل المثلث", img: IMGS.triangle, correct: false },
                     { text: "شكل الدائرة", img: IMGS.circle, correct: false },
@@ -534,7 +531,7 @@
                 document.getElementById('question-title').innerText = q.title;
                 document.getElementById('target-text-display').innerText = q.targetText;
                 renderOptions(q);
-                playAudio("q6");
+                playAudio("q5");
                 return;
             }
 
